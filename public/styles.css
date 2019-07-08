@@ -1,0 +1,64 @@
+#title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#searchBox {
+    width: 500px;
+    height: 25px;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+
+#find {
+    border: 1px solid black;
+    color: white;
+    background-color: black;
+    margin-right: 20px;
+    height: 30px;
+}
+
+#find:hover {
+    color: black;
+    background-color: lightgray;
+}
+
+#cat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 30px;
+}
+
+#categories {
+    border: 1px solid black;
+}
+
+h3 {
+    margin-right: 5px;
+    text-align: start;
+    margin-top: 5px;
+}
+
+#products {
+    font-weight: bold;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.details {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+#checkout {
+    margin-top: 10px;
+}
+

@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>My Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <input type="text" id="searchBox" placeholder="Search..."><button onclick="search()">Search</button>
-    <ul>
+    <header id="head-container">
+        <h1 id="title">ACA Store</h1>
+    </header>
+    <div id="search">
+        <input type="text" id="searchBox" placeholder="Search..."><button id="find" onclick="search()">Search</button>
+        <div id = "cat-container">
+            <h3>Filter:</h3>
+            <select id="categories">
+                <option value="">--Choose--</option>
+                <option value="food">Food</option>
+                <option value="electronics">Electronics</option>
+                <option value="Sporting">Sporting</option>
+            </select>
+        </div>
+    </div>
+    
+    <ul id="product-list">
         <li id ="products"></li>
     </ul>
 
@@ -24,6 +40,17 @@
             <span class="cart-total-title">Total</span>
             <span id="cart-total">$0.00</span>
         </div>
+
+        <h2>Please Fill out the Following Form:</h2>
+        <form id="checkout" action="">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" required>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" required>
+            <label for="email">Email Address:</label>
+            <input type="email" name="email" id="email" required placeholder="example@email.com">
+            <button type="submit" id="placeOrder">Place Order</button>
+        </form>
      <script src="products.js"></script>    
     <script src="index.js"></script>   
 </body>

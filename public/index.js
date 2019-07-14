@@ -1,3 +1,8 @@
+fetch("https://acastore.herokuapp.com/")
+.then(response => response.json())
+.then(data => console.log(data));
+
+
 window.onload = function() {
     mainDiv = document.getElementById("mainScreen");
     register = document.getElementById("register");

@@ -12,21 +12,24 @@
 
     <!-- Sign in/up components -->
     <div id="register">
-        <label for="email">Email:</label>
-        <input id ="email" type="text" placeholder="example@email.com" required> <br/>
-        <label for="password">Password:</label>
-        <input id="password" type="text" required> <br/>
-        <button type="submit" id="btn-signup" onclick="signup()">Sign Up</button>
+        <form action="">
+            <label for="email">Email:</label>
+            <input id ="email" type="text" placeholder="example@email.com" required> <br/>
+            <label for="password">Password:</label>
+            <input id="password" type="text" required> <br/>
+            <button type="submit" id="btn-signup" onclick="signUp()">Sign Up</button>
+        </form>
     </div>
 
     <div id="mainScreen" style="display:none">
         <header id="head-container">
             <h1 id="title">ACA Store</h1>
         </header>
-        <div id="home">
-            <button type="button" id="btnHome" onclick="showHome()">Home</button>
-        </div>
+        
         <div id="search">
+            <div id="home">
+                <button type="button" id="btnHome" onclick="showHome()">Home</button>
+            </div>
             <input type="text" id="searchBox" placeholder="Search..."><button id="find" onclick="search()">Search</button>
             <div id = "cat-container">
                 <h3>Filter:</h3>

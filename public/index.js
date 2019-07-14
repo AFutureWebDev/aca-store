@@ -1,17 +1,17 @@
 let products = [];
-let mainDiv = document.getElementById("mainScreen");
-let register = document.getElementById("register");
-let home = document.getElementById("home");
-let txtEmail = document.getElementById("email");
-let txtPassword = document.getElementById("password");
-let btnSignUp = document.getElementById("btn-signup");
-btnSignUp.onclick = signUp;
 
 window.onload = function() {
     fetch("https://acastore.herokuapp.com/products")
         .then(response => response.json())
         .then(data => products = data)
-        .then(products => Products(products)) 
+        .then(products => Products(products))
+    mainDiv = document.getElementById("mainScreen");
+    register = document.getElementById("register");
+    home = document.getElementById("home");
+    txtEmail = document.getElementById("email");
+    txtPassword = document.getElementById("password");
+    btnSignUp = document.getElementById("btn-signup");
+    btnSignUp.onclick = signUp;
 }
 
 class User {
@@ -23,10 +23,16 @@ class User {
   }
 
 function signUp() {
-    let newUser = new User(txtEmail.value, txtPassword.value, null);
-    console.log(newUser);
     mainDiv.style.display = "block";
     register.style.display = "none";
+    let newUser = new User(txtEmail.value, txtPassword.value, null);
+    fetch("https://acastore.herokuapp.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newUser)
+    }).then(response => response.json());
 }
 
 function showHome() {

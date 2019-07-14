@@ -1,22 +1,30 @@
-fetch("https://acastore.herokuapp.com/")
-.then(response => response.json())
-.then(data => console.log(data));
-
+let products = [];
+let mainDiv = document.getElementById("mainScreen");
+let register = document.getElementById("register");
+let home = document.getElementById("home");
+let txtEmail = document.getElementById("email");
+let txtPassword = document.getElementById("password");
+let btnSignUp = document.getElementById("btn-signup");
+btnSignUp.onclick = signUp;
 
 window.onload = function() {
-    mainDiv = document.getElementById("mainScreen");
-    register = document.getElementById("register");
-    home = document.getElementById("home");
-    txtEmail = document.getElementById("email");
-    txtPassword = document.getElementById("password");
-    btnSignUp = document.getElementById("btn-signup");
-    btnSignUp.onclcik = signUp;
-    Products(products);
+    fetch("https://acastore.herokuapp.com/products")
+        .then(response => response.json())
+        .then(data => products = data)
+        .then(products => Products(products)) 
 }
 
+class User {
+    constructor(email, password, cartId) {
+      this.email = email;
+      this.password = password;
+      this.cartId = cartId;
+    }
+  }
+
 function signUp() {
-    let email = txtEmail.value;
-    let password = txtPassword.value;
+    let newUser = new User(txtEmail.value, txtPassword.value, null);
+    console.log(newUser);
     mainDiv.style.display = "block";
     register.style.display = "none";
 }

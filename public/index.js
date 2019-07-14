@@ -1,3 +1,26 @@
+window.onload = function() {
+    mainDiv = document.getElementById("mainScreen");
+    register = document.getElementById("register");
+    home = document.getElementById("home");
+    txtEmail = document.getElementById("email");
+    txtPassword = document.getElementById("password");
+    btnSignUp = document.getElementById("btn-signup");
+    btnSignUp.onclcik = signUp;
+    Products(products);
+}
+
+function signUp() {
+    let email = txtEmail.value;
+    let password = txtPassword.value;
+    mainDiv.style.display = "block";
+    register.style.display = "none";
+}
+
+function showHome() {
+    Products(products);
+}
+
+
 function Products(products) {
 let productLi = "";
 let detailsButton = document.createElement('button').value = "More Details";
@@ -5,7 +28,7 @@ let toCartButton = document.createElement('button').value = "Add to Cart";
 
 for (let i =0; i < products.length; i++) {
         let product = products[i];
-        productLi += `<li>${product.name}
+        productLi += `<div class ="container">${product.name}
         <div class="product-image"><img id="picture" src=${product.imgUrl}></div>
         <div class="details" style="visibility: hidden;" id="${product.id}">
             <div>Description: ${product.description}</div>
@@ -13,7 +36,7 @@ for (let i =0; i < products.length; i++) {
             <div>Number of Reviews: ${product.reviewsNum}</div>
             <div>Rating: ${product.rating}</div>
         </div>
-        </li>
+        </div>
         <button onclick = "moreDetails(${product.id})">${detailsButton}</button>
         <button onclick ="addToCart(${product.id});calculateCartTotal();">${toCartButton}</button>
         <select id="quantity">

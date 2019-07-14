@@ -9,48 +9,62 @@
 </head>
 
 <body>
-    <header id="head-container">
-        <h1 id="title">ACA Store</h1>
-    </header>
-    <div id="search">
-        <input type="text" id="searchBox" placeholder="Search..."><button id="find" onclick="search()">Search</button>
-        <div id = "cat-container">
-            <h3>Filter:</h3>
-            <select id="categories">
-                <option value="">--Choose--</option>
-                <option value="food">Food</option>
-                <option value="electronics">Electronics</option>
-                <option value="Sporting">Sporting</option>
-            </select>
-        </div>
+
+    <!-- Sign in/up components -->
+    <div id="register">
+        <label for="email">Email:</label>
+        <input id ="email" type="text" placeholder="example@email.com" required> <br/>
+        <label for="password">Password:</label>
+        <input id="password" type="text" required> <br/>
+        <button type="submit" id="btn-signup" onclick="signup()">Sign Up</button>
     </div>
-    
-    <ul id="product-list">
-        <li id ="products"></li>
-    </ul>
 
-    <h2>CART</h2>
-        <div class="cart-row">
-            <span class="cart-item cart-header cart-column">ITEM</span>
+    <div id="mainScreen" style="display:none">
+        <header id="head-container">
+            <h1 id="title">ACA Store</h1>
+        </header>
+        <div id="home">
+            <button type="button" id="btnHome" onclick="showHome()">Home</button>
         </div>
-
-        <ul id="cart-items"></ul>
+        <div id="search">
+            <input type="text" id="searchBox" placeholder="Search..."><button id="find" onclick="search()">Search</button>
+            <div id = "cat-container">
+                <h3>Filter:</h3>
+                <select id="categories">
+                    <option value="">--Choose--</option>
+                    <option value="food">Food</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="Sporting">Sporting</option>
+                </select>
+            </div>
+        </div>
         
-        <div class="cart-total">
-            <span class="cart-total-title">Total</span>
-            <span id="cart-total">$0.00</span>
-        </div>
+        <div id ="products"></div>
+        
 
-        <h2>Please Fill out the Following Form:</h2>
-        <form id="checkout" action="">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" required>
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" required>
-            <label for="email">Email Address:</label>
-            <input type="email" name="email" id="email" required placeholder="example@email.com">
-            <button type="submit" id="placeOrder">Place Order</button>
-        </form>
+        <h2>CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+            </div>
+
+            <ul id="cart-items"></ul>
+            
+            <div class="cart-total">
+                <span class="cart-total-title">Total</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+
+            <h2>Please Fill out the Following Form:</h2>
+            <form id="checkout" action="">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" required>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" required>
+                <label for="email">Email Address:</label>
+                <input type="email" name="email" id="email" required placeholder="example@email.com">
+                <button type="submit" id="placeOrder">Place Order</button>
+            </form>
+        </div>
      <script src="products.js"></script>    
     <script src="index.js"></script>   
 </body>

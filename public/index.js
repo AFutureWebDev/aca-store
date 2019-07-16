@@ -12,6 +12,14 @@ window.onload = function() {
     txtPassword = document.getElementById("password");
     btnSignUp = document.getElementById("btn-signup");
     btnSignUp.onclick = signUp;
+    adminBtn = document.getElementById("admin-btn");
+    adminBtn.onclick = admin;
+    adminContainer = document.getElementById("admin-container");
+    txtName = document.getElementById("product-name");
+    txtDescription = document.getElementById("product-description");
+    txtPrice = document.getElementById("product-price");
+    btnSave = document.getElementById("save-btn");
+    btnSave.onclick = save;
 }
 
 class User {
@@ -33,6 +41,8 @@ function signUp() {
       },
       body: JSON.stringify(newUser)
     }).then(response => response.json());
+    console.log(newUser);
+    localStorage.setItem('newUser', JSON.stringify(newUser));
 }
 
 function showHome() {
@@ -75,10 +85,6 @@ for (let i =0; i < products.length; i++) {
 document.getElementById("products").innerHTML= productLi;
 }
 
-// didn't finish sessions storage...lost on next step
-Products(products);
-let parsedItems = JSON.parse(sessionStorage.getItem('cart'));
-
 function populateCart() {
 parsedItems.forEach()
     let cartItems = document.getElementById('cart-items');
@@ -110,17 +116,12 @@ function moreDetails(id) {
         }
     } 
 }
-// Created this variable for sessionStorage
-let cart = [];
+
 function addToCart(id) {
     let cartItems = document.getElementById('cart-items');
     let product = products.find(function(product) {
         return product.id == id;
     });
-    // pushing the items into the array and then adding them into sessionStorage
-    cart.push(product);
-    sessionStorage.setItem('cart', JSON.stringify(cart));
-
     let li = document.createElement('li');
     let removeButton = document.createElement('button');
     removeButton.innerHTML = "Remove";
@@ -158,6 +159,33 @@ function search() {
     let filteredProducts = products.filter(p => p.name.toLowerCase() === searchWord)
 
     Products(filteredProducts);
+}
+
+
+class Save {
+    constructor(name, description, price) {
+      this.name = name;
+      this.description = description;
+      this.price = price;
+    }
+  }
+
+function admin(){
+    adminContainer.style.display = "block";
+}
+
+function save() {
+    let newProduct = new Save(txtName.value, txtDescription.value, txtPrice.value);
+    fetch("https://acastore.herokuapp.com/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newProduct)
+    }).then(response => response.json());
+    console.log(newProduct);
+    localStorage.setItem('newProduct', JSON.stringify(newProduct));
+    Products(products);
 }
 
 

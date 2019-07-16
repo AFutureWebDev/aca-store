@@ -16,8 +16,8 @@
             <label for="email">Email:</label>
             <input id ="email" type="text" placeholder="example@email.com" required> <br/>
             <label for="password">Password:</label>
-            <input id="password" type="text"> <br/>
-            <button type="submit" id="btn-signup" onclick="signUp()">Sign Up</button>
+            <input id="password" type="password"> <br/>
+            <button type="button" id="btn-signup" onclick="signUp()">Sign Up</button>
         </form>
     </div>
 
@@ -67,6 +67,19 @@
                 <input type="email" name="email" id="email"  placeholder="example@email.com">
                 <button type="submit" id="placeOrder">Place Order</button>
             </form>
+
+            <!-- Admin Only -->
+            <!-- ## Create Product
+            * Create a screen that is intended to be used by the employees of the company
+            * Create text input for name,description, price
+            * Create a save button, when clicked will do a post to /products. Refresh the list of products -->
+            <button type="button" id="admin-btn" onclick="admin()">Admin</button>
+            <div id="admin-container" style="display:none">
+                Product Name:<input type="text" id="product-name">
+                Description: <input type="text" id="product-description">
+                Price: <input type="text" id="product-price">
+                <button type="button" id="save-btn" onclick="save()">Save</button>
+            </div>
         </div>
      <!-- <script src="products.js"></script>     -->
     <script src="index.js"></script>   

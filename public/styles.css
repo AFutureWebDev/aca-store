@@ -55,7 +55,17 @@ h3 {
 #products {
     font-weight: bold;
     font-size: 20px;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; */
 }
+
+/* .details {
+    display: flex;
+    justify-content: column;
+    justify-content: center;
+} */
 
 .details {
     font-weight: 400;
